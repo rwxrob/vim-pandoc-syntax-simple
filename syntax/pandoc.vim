@@ -1,19 +1,10 @@
 scriptencoding utf-8
 
-" I fucking hate vim folding (fork off if you want it)
-
-" TODO migrate this into the defaults for this plugin (from vimrc)
+" mandatory changes (override user settings)
 let g:pandoc#modules#disabled = ["folding"]
-let g:pandoc#syntax#conceal#urls = 1
+let g:pandoc#syntax#conceal#urls = 0
 let g:pandoc#syntax#conceal#blacklist = ["atx","codeblock_start","codeblock_delim"]
-au syntax * hi Default cterm=none term=none ctermbg=none
-au syntax * hi pandocEmphasis cterm=none term=none ctermfg=Magenta 
-au syntax * hi pandocStrong cterm=bold term=bold ctermfg=Magenta 
-au syntax * hi pandocStrongEmphasis cterm=none term=none ctermfg=Red
-au syntax * hi pandocReferenceURL cterm=none ctermfg=Cyan
-au syntax * hi pandocAutomaticLink cterm=none ctermfg=Cyan
-au syntax * hi link pandocDelimitedCodeBlock pandocNoFormatted
-au syntax * hi SpellBad ctermfg=White ctermbg=Red cterm=none
+
 
 if !exists('g:pandoc#syntax#conceal#use')
     if v:version < 703
@@ -104,8 +95,8 @@ endif
 if !exists('g:pandoc#syntax#style#emphases')
     let g:pandoc#syntax#style#emphases = 1
 endif
-" if 0, we don't conceal the emphasis marks, otherwise there wouldn't be a way
-" to tell where the styles apply.
+" if 0, we don't conceal the emphasis marks, otherwise there wouldn't be
+" a way to tell where the styles apply.
 if g:pandoc#syntax#style#emphases == 0
     call add(g:pandoc#syntax#conceal#blacklist, 'block')
 endif
@@ -688,9 +679,18 @@ endif
 hi link pandocNewLine Error
 hi link pandocHRule Delimiter
 
-
+hi Default cterm=none term=none ctermbg=none
+hi pandocEmphasis cterm=none term=none ctermfg=Magenta 
+hi pandocStrong cterm=bold term=bold ctermfg=Magenta 
+hi pandocStrongEmphasis cterm=none term=none ctermfg=Red
+hi pandocReferenceURL cterm=none ctermfg=Cyan
+hi pandocAutomaticLink cterm=none ctermfg=Cyan
+hi link pandocDelimitedCodeBlock pandocNoFormatted
+hi SpellBad ctermfg=White ctermbg=Red cterm=none
 
 let b:current_syntax = 'pandoc'
 
 syntax sync clear
 syntax sync minlines=1000
+
+

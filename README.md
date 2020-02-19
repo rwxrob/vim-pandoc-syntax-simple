@@ -17,7 +17,6 @@ The `vim-pandoc-simple-syntax` standalone Pandoc syntax module is a fork from th
 
 Add something like the following to your `.vimrc` after installing the [`Plug`](https://github.com/junegunn/vim-plug) Vim package manager (all the others are rather dated and don't allow storing plugins separated):
 
-
 ```vim
 call plug#begin('~/.vimplugins')
 Plug 'vim-pandoc/vim-pandoc'
@@ -48,10 +47,8 @@ augroup END
 
 ## TODO
 
-* ***Remove*** conceal ligatures for section and lists.
 * Add back screenshots (from imgur to keep plugin light).
 * Correct syntax highlighting of Pandoc Tables.
-* Integrated better defaults colors.
 * Consider adding themes for better color customization.
 * Add ellipsis smart punctuation from list context. 
 * Correct en-dash and em-dash missing contexts.
